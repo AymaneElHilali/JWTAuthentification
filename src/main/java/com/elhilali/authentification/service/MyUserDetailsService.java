@@ -1,6 +1,6 @@
 package com.elhilali.authentification.service;
 
-import com.elhilali.authentification.dataAcces.AdminRepo;
+import com.elhilali.authentification.dataAcces.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class MyUserDetailsService implements UserDetailsService {
     @Autowired
-    AdminRepo adminRepo;
+    UserRepo userRepo;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return adminRepo.findByEmail(email);
+        return userRepo.findByEmail(email);
     }
 
 }
