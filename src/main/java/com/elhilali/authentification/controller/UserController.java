@@ -1,6 +1,8 @@
 package com.elhilali.authentification.controller;
-import com.elhilali.authentification.dataAcces.User;
+import com.elhilali.authentification.dataAcces.dto.UserDTO;
+import com.elhilali.authentification.dataAcces.entity.User;
 import com.elhilali.authentification.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,17 +17,16 @@ public class UserController {
 
 
     @PostMapping("/signup")
-    public User signup(@RequestBody User user){
-        return userService.signup(user);
+    public UserDTO signup(@Valid @RequestBody UserDTO userdto){
+
+        return userService.signup(userdto);
     }
 
 
 
     @PostMapping("/login")
-    public String login(@RequestBody User user) {
-
-        return userService.login(user);
-
+    public UserDTO login(@Valid @RequestBody UserDTO userDTO) {
+        return userService.login(userDTO);
     }
 
 
@@ -38,6 +39,6 @@ public class UserController {
 
     @GetMapping("/landingPage2")
     public String landingPage2(){
-        return "pass";
+        return "";
     }
 }

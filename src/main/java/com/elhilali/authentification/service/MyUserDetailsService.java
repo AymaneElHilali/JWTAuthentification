@@ -1,6 +1,6 @@
 package com.elhilali.authentification.service;
 
-import com.elhilali.authentification.dataAcces.UserRepo;
+import com.elhilali.authentification.dataAcces.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
