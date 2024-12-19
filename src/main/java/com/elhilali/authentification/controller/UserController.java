@@ -1,5 +1,5 @@
 package com.elhilali.authentification.controller;
-import com.elhilali.authentification.dataAcces.dto.UserDTO;
+import com.elhilali.authentification.dataAcces.dto.*;
 import com.elhilali.authentification.dataAcces.entity.User;
 import com.elhilali.authentification.service.UserService;
 import jakarta.validation.Valid;
@@ -17,16 +17,15 @@ public class UserController {
 
 
     @PostMapping("/signup")
-    public UserDTO signup(@Valid @RequestBody UserDTO userdto){
-
-        return userService.signup(userdto);
+    public SignupResponseDTO signup(@Valid @RequestBody SignupRequestDto signupRequestDto){
+        return userService.signup(signupRequestDto);
     }
 
 
 
     @PostMapping("/login")
-    public UserDTO login(@Valid @RequestBody UserDTO userDTO) {
-        return userService.login(userDTO);
+    public LoginResponseDTO login(@Valid @RequestBody LoginRequestDTO loginRequestDTO) {
+        return userService.login(loginRequestDTO);
     }
 
 
